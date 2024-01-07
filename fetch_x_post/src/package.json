@@ -4,6 +4,9 @@
   "description": "fetch X post",
   "main": "app.ts",
   "license": "MIT",
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "unit": "jest",
     "lint": "eslint '*.ts' --quiet --fix",
