@@ -1,12 +1,16 @@
 # fetch_google_trends
 ref. https://aws.amazon.com/jp/builders-flash/202303/serverless-local-dev-environment
 
-# Local Pyhon version
+TODO 一応書いといたほうがいいもの
+* aws cli
+* pyenv
+
+## Local Pyhon version
 ```
 3.11
 ```
 
-# Install sam cli
+## Install sam cli
 ```shell
 $ brew tap aws/tap
 $ brew install aws-sam-cli
