@@ -43,6 +43,11 @@ sam deploy --guided
 $ sam logs -n FetchGoogleTrendsFunction --stack-name "fetch-google-trends" --tail
 ```
 
+## Remote invoke
+
+```bash
+$ sam remote invoke FetchGoogleTrendsFunction --event "{}"
+```
 
 ## Cleanup
 
