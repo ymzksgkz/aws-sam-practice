@@ -1,5 +1,5 @@
 {
-  "name": "fetch_x_post",
+  "name": "fetch_instagram_post",
   "version": "1.0.0",
   "description": "fetch X post",
   "main": "app.ts",

@@ -4,7 +4,7 @@ version = 0.1
 
 [default]
 [default.global.parameters]
-stack_name = "fetch-x-post"
+stack_name = "fetch-instagram-post"
 
 [default.build.parameters]
 parallel = true
@@ -17,7 +17,7 @@ capabilities = "CAPABILITY_IAM"
 confirm_changeset = true
 resolve_s3 = true
 resolve_image_repos = true
-s3_prefix = "fetch-x-post"
+s3_prefix = "fetch-instagram-post"
 region = "ap-northeast-1"
 
 [default.package.parameters]

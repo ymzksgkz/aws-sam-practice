@@ -1,6 +1,6 @@
 FROM public.ecr.aws/lambda/nodejs:20
 
-COPY fetch_x_post .
+COPY fetch_instagram_post .
 
 RUN npm install -g yarn
 
