@@ -1,4 +1,4 @@
-# fetch_sns_post
+# fetch_media_post
 
 ## Local Node version
 ```
@@ -20,7 +20,7 @@ $ sam init
 
 ```shell
 $ npm i -g yarn
-$ cd ./fetch_sns_post
+$ cd ./fetch_media_post
 $ yarn
 ```
 
@@ -34,7 +34,7 @@ $ yarn test
 
 ```bash
 $ sam build
-$ sam local invoke FetchSnsPost --event events/event.json
+$ sam local invoke FetchMediaPost --event events/event.json
 ```
 
 
@@ -48,17 +48,17 @@ sam deploy --guided
 ## Logging
 
 ```bash
-$ sam logs --stack-name "fetch-sns-post" --tail
+$ sam logs --stack-name "fetch-media-post" --tail
 ```
 
 ## Remote invoke
 
 ```bash
-$ sam remote invoke FetchSnsPost --event events/event.json
+$ sam remote invoke FetchMediaPost --event events/event.json
 ```
 
 ## Cleanup
 
 ```bash
-$ sam delete --stack-name "fetch-sns-post"
+$ sam delete --stack-name "fetch-media-post"
 ```
