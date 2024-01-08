@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  fetch_news_post
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  FetchNewsPost:
+    Type: AWS::Serverless::Function
+    Properties:
+      PackageType: Image
+      Architectures:
+        - arm64
+      # 時間じゃなくて trends 取得関数の実行が正常終了したタイミングで呼び出されるのがよさそう
+      Events:
+        ScheduleEvent:
+          Type: Schedule
+          Properties:
+            Schedule: cron(5,35 * * * ? *)
+    Metadata:
+      DockerTag: nodejs20.x-v1
+      DockerContext: .
+      Dockerfile: Dockerfile
