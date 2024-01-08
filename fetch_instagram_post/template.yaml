@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  fetch_instagram_post_image
+  fetch_sns_post_image
 
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
@@ -9,7 +9,7 @@ Globals:
     Timeout: 3
 
 Resources:
-  FetchInstagramPost:
+  FetchSnsPost:
     Type: AWS::Serverless::Function
     Properties:
       PackageType: Image

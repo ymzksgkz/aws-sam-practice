@@ -1,4 +1,4 @@
-# fetch_instagram_post
+# fetch_sns_post
 
 ## Local Node version
 ```
@@ -20,7 +20,7 @@ $ sam init
 
 ```shell
 $ npm i -g yarn
-$ cd ./fetch_instagram_post
+$ cd ./fetch_sns_post
 $ yarn
 ```
 
@@ -34,7 +34,7 @@ $ yarn test
 
 ```bash
 $ sam build
-$ sam local invoke FetchInstagramPost --event events/event.json
+$ sam local invoke FetchSnsPost --event events/event.json
 ```
 
 
@@ -48,17 +48,17 @@ sam deploy --guided
 ## Logging
 
 ```bash
-$ sam logs --stack-name "fetch-instagram-post" --tail
+$ sam logs --stack-name "fetch-sns-post" --tail
 ```
 
 ## Remote invoke
 
 ```bash
-$ sam remote invoke FetchInstagramPost --event events/event.json
+$ sam remote invoke FetchSnsPost --event events/event.json
 ```
 
 ## Cleanup
 
 ```bash
-$ sam delete --stack-name "fetch-instagram-post"
+$ sam delete --stack-name "fetch-sns-post"
 ```
