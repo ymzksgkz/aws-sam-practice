@@ -1,14 +1,12 @@
 # fetch_google_trends
-ref. https://aws.amazon.com/jp/builders-flash/202303/serverless-local-dev-environment
 
-TODO 一応書いといたほうがいいもの
-* aws cli
-* pyenv
+## Local Node version
+```
+20.x
+```
 
-## Local Pyhon version
-```
-3.11
-```
+## TODO
+aws cli とかも一応説明しておく？
 
 ## Install sam cli
 ```shell
@@ -18,19 +16,25 @@ $ brew install aws-sam-cli
 $ sam init
 ```
 
+## Install for local development
+
+```shell
+$ npm i -g yarn
+$ cd ./fetch_google_trends
+$ yarn
+```
+
 ## Unit tests
 
 ```bash
-$ pip install pytest pytest-mock --user
-$ python -m pytest tests/ -v
+$ yarn test
 ```
-
 
 ## Local invoke
 
 ```bash
 $ sam build
-$ sam local invoke FetchGoogleTrendsFunction --event events/event.json
+$ sam local invoke FetchGoogleTrends --event events/event.json
 ```
 
 
@@ -44,13 +48,13 @@ sam deploy --guided
 ## Logging
 
 ```bash
-$ sam logs -n FetchGoogleTrendsFunction --stack-name "fetch-google-trends" --tail
+$ sam logs --stack-name "fetch-google-trends" --tail
 ```
 
 ## Remote invoke
 
 ```bash
-$ sam remote invoke FetchGoogleTrendsFunction --event "{}"
+$ sam remote invoke FetchGoogleTrends --event events/event.json
 ```
 
 ## Cleanup

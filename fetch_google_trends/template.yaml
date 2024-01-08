@@ -1,27 +1,27 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  python3.11
-  Fetch google trends data function
+  fetch_google_trends_image
 
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
-    Timeout: 30
+    Timeout: 3
 
 Resources:
-  FetchGoogleTrendsFunction:
-    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+  FetchGoogleTrends:
+    Type: AWS::Serverless::Function
     Properties:
       PackageType: Image
       Architectures:
         - arm64
+      # 時間じゃなくて trends 取得関数の実行が正常終了したタイミングで呼び出されるのがよさそう
       Events:
         ScheduleEvent:
           Type: Schedule
           Properties:
-            Schedule: cron(0,30 * * * ? *)
+            Schedule: cron(5,35 * * * ? *)
     Metadata:
+      DockerTag: nodejs20.x-v1
+      DockerContext: .
       Dockerfile: Dockerfile
-      DockerContext: ./fetch_google_trends
-      DockerTag: python3.11-v1
