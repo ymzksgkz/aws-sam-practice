@@ -1,25 +1,58 @@
-export const lambdaHandler = async () => {
-  // TODO
-  // 1. API から trend 情報を取得
-  // 2. 検索ワードの一部から画像を検索(当日から2日前までの範囲で最大10件)
-  // 3. 画像をVision API に投げてさらに情報を取得（関連ワードとして表示するため）
-  // 4. ポストから API リクエストに必要な情報を集約
-  // 5. API に保存
+import axios from 'axios'
+import { GoogleTrends, TrendsApiRequestParams, TrendsStory } from './types'
+
+const fetchGoogleTrends = async () => {
+  const trendsUrl = 'https://trends.google.com/trends/api/realtimetrends'
+  const params = {
+    hl: 'ja',
+    tz: '-540',
+    cat: 'e',
+    fi: '0',
+    fs: '0',
+    geo: 'JP',
+    ri: '300',
+    rs: '20',
+    sort: '0',
+  }
 
   try {
-    return {
-      statusCode: 200,
-      body: JSON.stringify({
-        message: 'hello world',
-      }),
-    }
-  } catch (err) {
-    console.log(err)
-    return {
-      statusCode: 500,
-      body: JSON.stringify({
-        message: 'some error happened',
-      }),
-    }
+    const response = await axios.get(trendsUrl, { params })
+    // 先頭に謎の文字列が入ってくるので削除している
+    const jsonString = response.data.substring(5)
+
+    return JSON.parse(jsonString) as GoogleTrends
+  } catch (e) {
+    throw e
+  }
+}
+
+const formatParameters = (trends: GoogleTrends): TrendsApiRequestParams => ({
+  stories: trends.storySummaries.trendingStories.map(story => {
+    const { id, articles, image, entityNames, shareUrl } = story
+    return { id, articles, image, entityNames, shareUrl }
+  }) as TrendsStory[],
+  reportDate: trends.date,
+})
+
+const trendsApiRequest = async (params: TrendsApiRequestParams) => {
+  const url = 'https://example.com' // TODO 実装したら変更する
+  try {
+    const response = await axios.post(url, params)
+    return response.data
+  } catch (e) {
+    throw e
+  }
+}
+
+export const lambdaHandler = async () => {
+  try {
+    const response = await fetchGoogleTrends()
+    const params = formatParameters(response)
+
+    console.log(params)
+
+    return await trendsApiRequest(params)
+  } catch (e) {
+    throw e
   }
 }

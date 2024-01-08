@@ -3,13 +3,14 @@
     "target": "es2020",
     "strict": true,
     "preserveConstEnums": true,
-    "sourceMap": false,
+    "sourceMap": true,
+    "inlineSourceMap": true,
     "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "dist"
+    "outDir": "dist",
   },
   "include": ["**/*.ts"],
   "exclude": ["node_modules", "**/*.test.ts", "jest.config.ts"]

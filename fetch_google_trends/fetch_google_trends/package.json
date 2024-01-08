@@ -13,8 +13,12 @@
     "compile": "yarn tsc",
     "test": "yarn compile && yarn unit"
   },
+  "dependencies": {
+    "axios": "^1.6.5"
+  },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.92",
+    "@types/axios": "^0.14.0",
     "@types/jest": "^29.2.0",
     "@types/node": "^20.5.7",
     "@typescript-eslint/eslint-plugin": "^5.10.2",
