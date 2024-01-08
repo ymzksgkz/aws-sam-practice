@@ -43,3 +43,8 @@ export interface TrendsApiRequestParams {
   stories: TrendsStory[]
   reportDate: string
 }
+
+export interface TrendsApiResponse {
+  statusCode: number
+  message: string
+}
