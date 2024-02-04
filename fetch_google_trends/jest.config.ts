@@ -5,14 +5,14 @@
 
 export default {
   transform: {
-    '^.+\\.ts?$': 'ts-jest',
+    '^.+\\.ts?$': 'ts-jest'
   },
   moduleNameMapper: {
-    '^@api/(.*)$': '<rootDir>/api_client/$1',
+    '^@api/(.*)$': '<rootDir>/api_client/$1'
   },
   clearMocks: true,
   collectCoverage: true,
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
-  testMatch: ['**/tests/unit/*.test.ts'],
+  testMatch: ['**/tests/unit/*.test.ts']
 }

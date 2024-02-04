@@ -1,3 +1,8 @@
+export const DbItemExpires = {
+  time: 25,
+  unit: 'day'
+} as const
+
 export interface Article {
   articleTitle: string
   url: string
@@ -27,24 +32,13 @@ export interface GoogleTrends {
   date: string
 }
 
-export interface TrendsStory {
+export interface TrendsItem {
   id: string
-  image: {
-    newsUrl: string
-    imageUrl: string
-    source: string
-  }
-  shareUrl: string
-  articles: Article[]
   entityNames: string[]
-}
-
-export interface TrendsApiRequestParams {
-  stories: TrendsStory[]
-  reportDate: string
-}
-
-export interface TrendsApiResponse {
-  statusCode: number
-  message: string
+  newsUrl: string
+  source: string
+  imgUrl: string
+  postDate: string
+  createdAt: string
+  expires: number
 }
