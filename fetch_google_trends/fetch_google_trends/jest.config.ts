@@ -7,6 +7,9 @@ export default {
   transform: {
     '^.+\\.ts?$': 'ts-jest',
   },
+  moduleNameMapper: {
+    '^@api/(.*)$': '<rootDir>/api_client/$1',
+  },
   clearMocks: true,
   collectCoverage: true,
   coverageDirectory: 'coverage',
