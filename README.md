@@ -1,4 +1,4 @@
-# fetch_google_trends
+# google_trends_lambda
 
 ## Local Node version
 ```
