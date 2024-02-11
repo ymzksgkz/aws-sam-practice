@@ -5,8 +5,10 @@
 20.x
 ```
 
-## TODO
-aws cli とかも一応説明しておく？
+## Install AWS Cli
+```shell
+https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html
+```
 
 ## Install sam cli
 ```shell
@@ -34,9 +36,8 @@ $ yarn test
 
 ```bash
 $ sam build
-$ sam local invoke FetchGoogleTrends --event events/event.json
+$ sam local invoke FetchGoogleTrends
 ```
-
 
 ## Deploy
 

@@ -12,6 +12,7 @@ Resources:
   FetchGoogleTrends:
     Type: AWS::Serverless::Function
     Properties:
+      Timeout: 100
       PackageType: Image
       Architectures:
         - arm64
@@ -20,7 +21,7 @@ Resources:
         ScheduleEvent:
           Type: Schedule
           Properties:
-            Schedule: cron(5,35 * * * ? *)
+            Schedule: cron(0,30 * * * ? *)
     Metadata:
       DockerTag: nodejs20.x-v1
       DockerContext: .
