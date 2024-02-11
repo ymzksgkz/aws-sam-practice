@@ -43,7 +43,10 @@ $ sam local invoke FetchGoogleTrends
 
 ```bash
 sam build
-sam deploy --guided
+
+export $(egrep -v '^#' .env | xargs) \
+  && sam deploy --guided \
+  --parameter-overrides DynamoDBTableArn=$DYNAMO_DB_TABLE_ARN
 ```
 
 ## Logging

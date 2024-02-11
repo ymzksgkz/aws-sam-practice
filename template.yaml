@@ -3,10 +3,13 @@ Transform: AWS::Serverless-2016-10-31
 Description: >
   fetch_google_trends_image
 
-# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
     Timeout: 3
+
+Parameters:
+  DynamoDbTableArn:
+    Type: String
 
 Resources:
   FetchGoogleTrends:
@@ -16,12 +19,19 @@ Resources:
       PackageType: Image
       Architectures:
         - arm64
-      # 時間じゃなくて trends 取得関数の実行が正常終了したタイミングで呼び出されるのがよさそう
       Events:
         ScheduleEvent:
           Type: Schedule
           Properties:
-            Schedule: cron(0,30 * * * ? *)
+            Schedule: cron(0,15,30,45 * * * ? *)
+      Policies:
+        - Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - dynamodb:PutItem
+                - dynamodb:UpdateItem
+              Resource: !Ref DynamoDbTableArn
     Metadata:
       DockerTag: nodejs20.x-v1
       DockerContext: .
