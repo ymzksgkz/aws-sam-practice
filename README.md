@@ -1,3 +1,8 @@
+# Deprecated
+なんか違うと思ったので別リポジトリで作り直す
+https://github.com/ymzksgkz/fetchGoogleTrends
+AWS SAM を若干勉強した記録にのこしとく
+
 # google_trends_lambda
 
 ## Local Node version
@@ -20,7 +25,7 @@ $ sam init
 
 ## Install for local development
 
-```shell
+```bash
 $ npm i -g yarn
 $ cd ./fetch_google_trends
 $ yarn
