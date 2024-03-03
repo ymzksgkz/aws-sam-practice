@@ -1,7 +1,9 @@
-# Deprecated
-なんか違うと思ったので別リポジトリで作り直す
-https://github.com/ymzksgkz/fetchGoogleTrends
-AWS SAM を若干勉強した記録にのこしとく
+> [!CAUTION]
+> **Deprecated**<br/>
+> なんか違うと思ったので別リポジトリで作り直す<br/>
+> https://github.com/ymzksgkz/fetchGoogleTrends<br/>
+> → AWS SAM を若干勉強した記録として残しておく
+
 
 # google_trends_lambda
 
